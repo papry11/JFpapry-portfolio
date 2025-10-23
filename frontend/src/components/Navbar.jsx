@@ -33,12 +33,11 @@ const Navbar = () => {
 
       {/* 🌈 Gradient Hire Me Button */}
       <div className="flex items-center gap-8">
-        <button
-          onClick={() => navigate("/contact")}
-          className="px-8 py-2.5 rounded-full text-white font-medium bg-gradient-to-r  from-[#9e1467] to-[#4b0e5d] hover:opacity-80 transition-all duration-300 shadow-lg"
-        >
-          Hire me
-        </button>
+        <div className="button-bg rounded-full p-0.5 hover:scale-105 transition duration-300 active:scale-100">
+                <button className="px-10 text-sm py-2.5 border border-white/20 text-white rounded-full font-medium bg-gray-800">
+                    HIRE ME
+                </button>
+            </div>
       </div>
 
       <MenuIcon
