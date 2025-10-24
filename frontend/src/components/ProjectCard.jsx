@@ -45,7 +45,7 @@ const ProjectCard = () => {
         variants={smallFade}
         className="flex flex-wrap items-center justify-center gap-10 pt-10"
       >
-        {ProjectsData.slice(0, 10).map((item, index) => (
+        {ProjectsData.slice(0, 6).map((item, index) => (
           <motion.div onClick={()=>navigate(`/project/${item._id}`)}
             key={index}
             variants={smallFade}

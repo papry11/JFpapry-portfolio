@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { Github, Linkedin, Mail } from "lucide-react"; // lucide-react icons
+import { Github, Instagram, Linkedin, Mail } from "lucide-react"; // lucide-react icons
 
 const container = {
   hidden: { opacity: 0 },
@@ -54,6 +54,14 @@ const Header = () => {
           className="text-gray-800 hover:text-red-500 transition-colors transform hover:scale-110"
         >
           <Mail size={28} />
+        </a>
+         <a
+          href="https://linkedin.com/in/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-800 hover:text-blue-500 transition-colors transform hover:scale-110"
+        >
+          <Instagram size={28} />
         </a>
       </div>
 
