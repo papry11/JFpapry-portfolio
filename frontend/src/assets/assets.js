@@ -1,48 +1,61 @@
 // assets/portfolioAssets.js
 
 import logo from './logo.svg'
-import profile from './profile.png'
+import blog_pic_1 from './blog_pic_1.png'
 
 export const portfolioAssets = {
   logo,
-  profile
+  blog_pic_1
 }
 
-export const dummyProjectsData = [
-  {
-    _id: '1',
-    title: 'Portfolio Website',
-    description: 'A personal portfolio built with React, Tailwind CSS, and Framer Motion to showcase my projects and skills.',
-    image: 'https://i.ibb.co/2M3QmLZ/portfolio.png',
-    techStack: ['React', 'Tailwind', 'Framer Motion'],
-    liveUrl: 'https://yourportfolio.com',
-    githubUrl: 'https://github.com/yourusername/portfolio'
+export const ProjectsData = [
+{
+          "_id": "6805ee7dd8f584af5da78d37",
+          "title": "A detailed step by step guide to manage your lifestyle",
+          "description":'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quae dolores iste vel? Et, harum minus eius ullam tempore illum',
+          "image": blog_pic_1,
+          techStack: ['React', 'Node js' ,'Express js', 'Tailwind', 'Mongodb'],
+          liveUrl: 'https://yourportfolio.com',
   },
   {
-    _id: '2',
-    title: 'E-Commerce Store',
-    description: 'A full-stack e-commerce platform with product filters, secure checkout, and real-time order tracking.',
-    image: 'https://i.ibb.co/QnWbXwL/ecommerce.png',
-    techStack: ['Next.js', 'MongoDB', 'Stripe'],
-    liveUrl: 'https://yourstore.com',
-    githubUrl: 'https://github.com/yourusername/ecommerce-store'
+          "_id": "6805ee7dd8f584af5da78d456",
+          "title": "A detailed step by step guide to manage your lifestyle",
+          "description":'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quae dolores iste vel? Et, harum minus eius ullam tempore illum',
+          "image": blog_pic_1,
+          techStack: ['React', 'Node js' ,'Express js', 'Tailwind', 'Mongodb'],
+          liveUrl: 'https://yourportfolio.com',
   },
   {
-    _id: '3',
-    title: 'Movie Ticket Booking App',
-    description: 'A web app to browse movies, view trailers, and book tickets — built with MERN stack.',
-    image: 'https://i.ibb.co/8z0f7Vp/movieapp.png',
-    techStack: ['React', 'Node.js', 'MongoDB', 'Express'],
-    liveUrl: 'https://mymovieapp.com',
-    githubUrl: 'https://github.com/yourusername/movie-booking'
+          "_id": "6805ee7dd8f584af5da78d98",
+          "title": "A detailed step by step guide to manage your lifestyle",
+          "description":'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quae dolores iste vel? Et, harum minus eius ullam tempore illum',
+          "image": blog_pic_1,
+          techStack: ['React', 'Node js' ,'Express js', 'Tailwind', 'Mongodb'],
+          liveUrl: 'https://yourportfolio.com',
   },
   {
-    _id: '4',
-    title: 'AI Chat Assistant',
-    description: 'An AI-powered chatbot that integrates OpenAI API for smart conversations and knowledge retrieval.',
-    image: 'https://i.ibb.co/FKyswqB/aichat.png',
-    techStack: ['React', 'OpenAI API', 'Firebase'],
-    liveUrl: 'https://aichatbot.com',
-    githubUrl: 'https://github.com/yourusername/ai-chatbot'
+          "_id": "6805ee7dd8f584af5da78d65",
+          "title": "A detailed step by step guide to manage your lifestyle",
+          "description":'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quae dolores iste vel? Et, harum minus eius ullam tempore illum',
+          "image": blog_pic_1,
+          techStack: ['React', 'Node js' ,'Express js', 'Tailwind', 'Mongodb'],
+          liveUrl: 'https://yourportfolio.com',
   },
+   {
+          "_id": "6805ee7dd8f584af5da78d344",
+          "title": "A detailed step by step guide to manage your lifestyle",
+          "description":'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quae dolores iste vel? Et, harum minus eius ullam tempore illum',
+          "image": blog_pic_1,
+          techStack: ['React', 'Node js' ,'Express js', 'Tailwind', 'Mongodb'],
+          liveUrl: 'https://yourportfolio.com',
+  },
+    {
+          "_id": "6805ee7dd8f584af5da78d55",
+          "title": "A detailed step by step guide to manage your lifestyle",
+          "description":'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quae dolores iste vel? Et, harum minus eius ullam tempore illum',
+          "image": blog_pic_1,
+          techStack: ['React', 'Node js' ,'Express js', 'Tailwind', 'Mongodb'],
+          liveUrl: 'https://yourportfolio.com',
+  },
+
 ]

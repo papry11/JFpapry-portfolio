@@ -63,7 +63,7 @@ const App = () => {
             height: 150,
             borderRadius: '50%',
             pointerEvents: 'none',
-            background: 'radial-gradient(circle, rgba(255,0,150,0.5), transparent 50%)',
+            background: 'radial-gradient(circle, #E0EAEC, transparent 50%)',
           }}
         />
       )}

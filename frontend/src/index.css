@@ -18,14 +18,14 @@ section {
 }
 
 @theme {
-  --color-primary: #9d1767;
-  --color-primary-dull: #4b0e5d;
+  --color-primary: black;
+  --color-primary-dull: #E0EAEC;
   --color-pink: linear-gradient(to right, #9d1767, #4b0e5d);
 }
 
 body {
-  color: white;
-  background-color: #020617;
+  color: black;
+  background-color: #ffffff;
 }
 
 @keyframes shine {

@@ -1,12 +1,14 @@
 import React from 'react'
 import Header from '../components/Header'
-import ProjectSection from '../components/ProjectSection'
+import ProjectCard from '../components/ProjectCard'
+import CounterSection from '../components/Countersection'
 
 const Home = () => {
   return (
     <div>
       <Header />
-      <ProjectSection />
+      <CounterSection />
+      <ProjectCard />
     </div>
   )
 }

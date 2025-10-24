@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { Github, Linkedin, Mail } from "lucide-react"; // lucide-react icons
 
 const container = {
   hidden: { opacity: 0 },
@@ -24,31 +25,86 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="flex flex-col items-center justify-center px-6 sm:px-10 md:px-16 lg:px-20 py-16 mt-20 md:mt-28 rounded-3xl text-center">
+    <header className="flex flex-col items-center justify-center px-6 sm:px-10 md:px-16 lg:px-20 py-16 mt-20 md:mt-28 rounded-3xl text-center bg-primary-dull/40 shadow-inner border border-gray-200 relative">
+      
+      {/* Desktop: right-middle social icons */}
+      <div className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-4">
+        <a
+          href="https://github.com/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-800 hover:text-gray-600 transition-colors transform hover:scale-110"
+        >
+          <Github size={28} />
+        </a>
+        <a
+          href="https://linkedin.com/in/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-800 hover:text-blue-500 transition-colors transform hover:scale-110"
+        >
+          <Linkedin size={28} />
+        </a>
+      </div>
+
+      {/* Desktop: left-middle mail icon */}
+      <div className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 flex-col gap-4">
+        <a
+          href="mailto:youremail@gmail.com"
+          className="text-gray-800 hover:text-red-500 transition-colors transform hover:scale-110"
+        >
+          <Mail size={28} />
+        </a>
+      </div>
+
+      {/* Mobile: bottom-right corner all icons together */}
+      <div className="flex md:hidden fixed right-4  flex-col gap-3 z-50">
+        <a
+          href="https://github.com/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-800 hover:text-gray-600 transition-colors transform hover:scale-110"
+        >
+          <Github size={24} />
+        </a>
+        <a
+          href="https://linkedin.com/in/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-800 hover:text-blue-500 transition-colors transform hover:scale-110"
+        >
+          <Linkedin size={24} />
+        </a>
+        <a
+          href="mailto:youremail@gmail.com"
+          className="text-gray-800 hover:text-red-500 transition-colors transform hover:scale-110"
+        >
+          <Mail size={24} />
+        </a>
+      </div>
+
+      {/* Main content */}
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="space-y-5 z-10 max-w-2xl"
+        className="space-y-3 z-10 max-w-2xl"
       >
-        {/* Greeting */}
         <motion.h1
           variants={fadeUp}
-          className="text-4xl sm:text-5xl md:text-4xl font-semibold leading-tight text-white"
+          className="text-2xl sm:text-4xl md:text-4xl font-semibold leading-tight text-gray-800"
         >
-          Hello, I’m Papry
+          Hello, I’m <span className="text-gray-900 font-bold">Papry</span>
         </motion.h1>
 
-        {/* Role */}
         <motion.div variants={fadeUp}>
           <motion.h2
             variants={smallFade}
-            className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-200"
+            className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-800"
           >
             Full Stack Web Developer
           </motion.h2>
 
-          {/* Animated underlines */}
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "270px" }}
@@ -63,17 +119,15 @@ const Header = () => {
           />
         </motion.div>
 
-        {/* Description */}
         <motion.p
           variants={smallFade}
-          className="text-gray-300 max-w-xl text-sm sm:text-base leading-relaxed mx-auto"
+          className="text-gray-700 max-w-xl text-sm sm:text-base leading-relaxed mx-auto"
         >
-          I design and build high-performance, responsive web experiences that
-          balance elegant design with robust functionality. Clean, minimal, and
+          I build high-performance, responsive web experiences that balance
+          elegant design with robust functionality — clean, minimal, and
           user-focused.
         </motion.p>
 
-        {/* Buttons */}
         <motion.div
           variants={smallFade}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
@@ -88,7 +142,7 @@ const Header = () => {
               navigate("/project");
               scrollTo(0, 0);
             }}
-            className="px-6 py-2.5 rounded-full bg-white/90 text-gray-900 font-medium border border-white/20 backdrop-blur-sm transition-all"
+            className="px-6 py-2.5 rounded-full bg-gray-800 text-white font-medium border border-gray-400 transition-all"
           >
             See Projects
           </motion.button>
@@ -96,14 +150,14 @@ const Header = () => {
           <motion.button
             whileHover={{
               scale: 1.05,
-              backgroundColor: "rgba(255,255,255,0.1)",
+              backgroundColor: "rgba(0,0,0,0.05)",
             }}
             whileTap={{ scale: 0.97 }}
             onClick={() => {
               navigate("/contact");
               scrollTo(0, 0);
             }}
-            className="px-6 py-2.5 rounded-full text-gray-100 font-medium border border-white/20 backdrop-blur-sm transition-all"
+            className="px-6 py-2.5 rounded-full text-gray-800 font-medium border border-gray-400 transition-all"
           >
             Contact
           </motion.button>
@@ -114,3 +168,4 @@ const Header = () => {
 };
 
 export default Header;
+
