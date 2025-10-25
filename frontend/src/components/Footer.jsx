@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-   <div className="flex flex-col  items-center justify-around w-full py-16 text-sm text-gray-500">
+   <div className="flex flex-col  items-center justify-around w-full py-16 text-sm text-gray-500 pt-50">
                 <div className="flex items-center gap-8">
                     <a href="#" className="font-medium text-gray-500 hover:text-black transition-all">
                         Home
@@ -46,7 +46,7 @@ const Footer = () => {
                         </svg>
                     </a>
                 </div>
-                <p className="mt-8 text-center">Copyright © 2025 .  All rights reservered.</p>
+          <p className="py-4 text-gray-500 text-center">© {new Date().getFullYear()} Jannatul Ferdous papry </p>
             </div>
   )
 }

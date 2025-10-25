@@ -66,7 +66,7 @@ const Header = () => {
       </div>
 
       {/* Mobile: bottom-right corner all icons together */}
-      <div className="flex md:hidden fixed right-4  flex-col gap-3 z-50">
+      <div className="flex md:hidden fixed right-4 top-30  flex-col gap-3 z-50">
         <a
           href="https://github.com/yourusername"
           target="_blank"
