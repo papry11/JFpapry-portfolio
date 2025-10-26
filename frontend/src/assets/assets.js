@@ -2,10 +2,12 @@
 
 import logo from './logo.svg'
 import blog_pic_1 from './blog_pic_1.png'
+import hero_bg from './gradientBackground.png'
 
 export const portfolioAssets = {
   logo,
-  blog_pic_1
+  blog_pic_1,
+  hero_bg
 }
 
 export const ProjectsData = [

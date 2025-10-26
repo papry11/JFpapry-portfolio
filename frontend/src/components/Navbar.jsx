@@ -29,7 +29,7 @@ const Navbar = () => {
           }`}
       >
         <XIcon
-          className="md:hidden absolute top-6 right-6 w-6 h-6 text-white cursor-pointer"
+          className="md:hidden absolute top-6 right-6 w-7 h-7 text-white cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         />
 
