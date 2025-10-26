@@ -64,6 +64,14 @@ export const ProjectsData = [
           "image": blog_pic_1,
           techStack: ['React', 'Node js' ,'Express js', 'Tailwind', 'Mongodb'],
           liveUrl: 'https://yourportfolio.com',
+        },
+        {
+          "_id": "6805ee7dd8f584af5da78d52",
+          "title": "A detailed step by step guide to manage your lifestyle",
+          "description":'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quae dolores iste vel? Et, harum minus eius ullam tempore illum',
+          "image": blog_pic_1,
+          techStack: ['React', 'Node js' ,'Express js', 'Tailwind', 'Mongodb'],
+          liveUrl: 'https://yourportfolio.com',
   },
 
 ]

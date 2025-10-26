@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
+import WhyChooseMe from '../components/WhyChooseMe'
 
 const ProjectDetails = () => {
   const { id } = useParams()
@@ -19,7 +20,7 @@ const ProjectDetails = () => {
   }, [ProjectsData, id])
 
   return (
-    <div className="min-h-screen flex items-center justify-center   pt-10">
+    <div className="min-h-screen flex items-center justify-center pt-25">
       {projectInfo ? (
         <div className="max-w-5xl w-full bg-white rounded-2xl border border-primary-dull shadow-lg overflow-hidden flex flex-col md:flex-row gap-6">
 

@@ -43,7 +43,7 @@ const services = [
 
 export default function FullStackServicesSection() {
   return (
-    <section className="py-30 bg-white">
+    <div className="py-30 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -97,6 +97,6 @@ export default function FullStackServicesSection() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -36,6 +36,8 @@ export default function AboutUs() {
     return () => clearInterval(interval);
   }, []);
 
+  // <p className="py-4 text-gray-500 text-center">© {new Date().getFullYear()} Jannatul Ferdous papry </p>
+
   return (
     <div className="max-w-6xl mx-auto px-6 md:px-10 pt-35 space-y-16 text-gray-900">
       {/* Hero */}

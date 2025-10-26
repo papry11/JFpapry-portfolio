@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
+import Testimonal from "../components/Testimonal";
 
 const Projects = () => {
 
@@ -97,7 +98,8 @@ const Projects = () => {
           </motion.div>
         ))}
       </motion.div>
-    </motion.div>
+      </motion.div>
+      <Testimonal/>
     </div>
   )
 }
