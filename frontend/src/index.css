@@ -28,6 +28,13 @@ body {
   background-color: #ffffff;
 }
 
+.motion-container {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+
 @keyframes shine {
   0% {
     background-position: 0% 50%;

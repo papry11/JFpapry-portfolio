@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
-import { ExternalLink, Github, Code2 } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import Testimonal from "../components/Testimonal";
 
 const Projects = () => {
- const navigate = useNavigate();
+  const navigate = useNavigate();
   const { ProjectsData } = useContext(AppContext);
 
+  // Animation variants
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     show: {
@@ -22,8 +23,9 @@ const Projects = () => {
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-      className="flex flex-col items-center gap-8 my-24 px-4 md:px-10"
+      // 👇 This fixes mobile viewport issue
+      viewport={{ once: false, amount: 0.1 }}
+      className="motion-container flex flex-col items-center gap-8 my-24 px-4 md:px-10"
     >
       {/* Header */}
       <motion.h1
@@ -77,14 +79,12 @@ const Projects = () => {
                   {item.description}
                 </p>
 
-                {/* Highlight line */}
                 {item.highlight && (
                   <p className="text-sm text-indigo-500 font-medium mb-2">
                     ✨ {item.highlight}
                   </p>
                 )}
 
-                {/* Tech icons / stack */}
                 <div className="flex flex-wrap gap-2">
                   {item.techStack.map((tech, i) => (
                     <span
@@ -126,9 +126,10 @@ const Projects = () => {
           </motion.div>
         ))}
       </motion.div>
+
       <Testimonal />
     </motion.div>
   );
-}
+};
 
-export default Projects
+export default Projects;
