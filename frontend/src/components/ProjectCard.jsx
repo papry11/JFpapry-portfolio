@@ -21,7 +21,7 @@ const ProjectCard = () => {
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.1 }}
       className="flex flex-col items-center gap-8 my-24 px-4 md:px-10"
     >
       {/* Header */}
