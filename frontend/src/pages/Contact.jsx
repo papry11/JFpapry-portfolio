@@ -19,7 +19,7 @@ export default function ContactSection() {
           </h2>
           <p className="text-gray-600 text-base md:text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
             Have a project in mind or want to collaborate? Fill out the form,
-            and we’ll get back to you within a few hours.
+            and we’ll get back to you within a few minutes.
           </p>
 
           {/* Contact Info */}
@@ -34,7 +34,7 @@ export default function ContactSection() {
             {/* Social Links */}
             <div className="flex justify-center md:justify-start gap-4 mt-2">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/papry11"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-all shadow-sm hover:shadow-md"
@@ -43,7 +43,7 @@ export default function ContactSection() {
               </a>
 
               <a
-                href="https://linkedin.com/in/yourprofile"
+                href="https://www.linkedin.com/in/jannatulferdouspapry/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-all shadow-sm hover:shadow-md"
@@ -52,7 +52,7 @@ export default function ContactSection() {
               </a>
 
               <a
-                href="mailto:jannatulferdouspapry115@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=jannatulferdouspapry115@gmail.com"
                 className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-all shadow-sm hover:shadow-md"
               >
                 <Mail size={25} className="text-slate-800" />

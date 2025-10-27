@@ -19,7 +19,7 @@ section {
 
 @theme {
   --color-primary: black;
-  --color-primary-dull: #E0EAEC;
+  --color-primary-dull: #e0eaec;
   --color-pink: linear-gradient(to right, #9d1767, #4b0e5d);
 }
 
@@ -45,14 +45,14 @@ body {
 .button-bg {
   background: conic-gradient(
     from 0deg,
-    #fff,
+    #ffffff,
     #000,
     #000,
-    #fff,
+    #ffffff,
     #000,
     #000,
     #000,
-    #fff
+    #ffffff
   );
   background-size: 300% 300%;
   animation: shine 6s ease-out infinite;

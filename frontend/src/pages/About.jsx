@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { portfolioAssets } from "../assets/assets";
 
 export default function AboutUs() {
+  const navigate = useNavigate();
+
   // Animated counter logic
   const [counts, setCounts] = useState({
     projects: 0,
@@ -36,79 +40,136 @@ export default function AboutUs() {
     return () => clearInterval(interval);
   }, []);
 
-  // <p className="py-4 text-gray-500 text-center">© {new Date().getFullYear()} Jannatul Ferdous papry </p>
-
   return (
     <div className="max-w-6xl mx-auto px-6 md:px-10 pt-35 space-y-16 text-gray-900">
-      {/* Hero */}
+      {/* Hero Section */}
       <div className="grid gap-8 md:grid-cols-2 items-center">
-        <div className="space-y-5">
+        <div className="space-y-5 p-5">
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-            We build products people trust
+            Building Scalable & Impactful Digital Solutions
           </h1>
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-            Our mission is to simplify healthcare through elegant software and
-            human-centered design. We combine data, empathy, and engineering to
-            deliver reliable solutions at scale.
+
+          <p className="text-gray-600 text-base md:text-base leading-relaxed space-y-4">
+            Hello, I’m{" "}
+            <span className="font-semibold text-gray-800">
+              Jannatul Ferdous Papry
+            </span>{" "}
+            — a passionate{" "}
+            <span className="font-medium text-gray-700">
+              Full Stack Web Developer
+            </span>{" "}
+            dedicated to building clean, efficient, and impactful digital
+            experiences.
+            <br />
+            <br />
+            I specialize in modern technologies such as{" "}
+            <span className="font-medium text-gray-700">
+              React, Node.js, Express.js, MongoDB, and Tailwind CSS
+            </span>
+            , allowing me to deliver scalable and high-performance web
+            applications tailored to diverse business needs.
+            <br />
+            <br />
+            My work philosophy revolves around writing maintainable, modular,
+            and optimized code while ensuring seamless user experiences and
+            intuitive design. I approach every project with precision,
+            creativity, and a deep commitment to delivering solutions that
+            combine both functionality and aesthetics.
+            <br />
+            <br />
+            Beyond coding, I value collaboration, continuous learning, and
+            professional integrity — striving to bring meaningful innovation to
+            every project I take on.
           </p>
+
           <a
+            onClick={() => {
+              navigate("/contact");
+              scrollTo(0, 0);
+            }}
             href="#contact"
             className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-slate-900 text-white text-sm md:text-base font-medium hover:opacity-90 hover:scale-[1.02] transition-transform duration-200 shadow-sm"
           >
-            Contact us
+            Contact Me
           </a>
         </div>
+
         <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
           <img
-            src="https://images.unsplash.com/photo-1522199710521-72d69614c702?&w=1200&q=60"
-            alt="Team collaborating"
-            className="w-full h-64 md:h-80 object-cover"
+            src={portfolioAssets.papry}
+            alt="Developer workspace"
+            className="w-full  object-cover"
           />
         </div>
       </div>
 
-      {/* Mission & Values */}
+      {/* Mission, Vision & Values */}
       <div className="grid gap-6 md:gap-8 md:grid-cols-3">
         <article className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow duration-200">
-          <h3 className="font-semibold text-lg md:text-xl mb-2">Our Mission</h3>
+          <h3 className="font-semibold text-lg md:text-xl mb-2">My Mission</h3>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-            Make healthcare more accessible by building trustworthy,
-            easy-to-use digital products.
+            To craft robust, scalable, and user-centric digital solutions that
+            empower businesses and individuals to thrive in an ever-evolving
+            digital landscape. I aim to transform complex challenges into
+            seamless, efficient, and visually compelling web experiences.
           </p>
         </article>
 
         <article className="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-100 hover:shadow-md transition duration-200">
-          <h3 className="font-semibold text-lg md:text-xl mb-2">Vision</h3>
+          <h3 className="font-semibold text-lg md:text-xl mb-2">My Vision</h3>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-            A world where quality care is available to everyone regardless of
-            location.
+            To be recognized as a trusted Full Stack Developer who bridges
+            creativity with technology — driving innovation, fostering growth,
+            and delivering digital solutions that create lasting global impact.
           </p>
         </article>
 
         <article className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow duration-200">
           <h3 className="font-semibold text-lg md:text-xl mb-2">Core Values</h3>
           <ul className="text-gray-600 text-sm md:text-base space-y-1.5 list-disc list-inside">
-            <li>Human-centered design</li>
-            <li>Data-informed decisions</li>
-            <li>Operational excellence</li>
+            <li>
+              <span className="font-medium text-gray-800">Integrity:</span> I
+              maintain honesty, transparency, and responsibility in every
+              professional interaction.
+            </li>
+            <li>
+              <span className="font-medium text-gray-800">Excellence:</span>{" "}
+              Every line of code is written with precision, scalability, and
+              long-term value in mind.
+            </li>
+            <li>
+              <span className="font-medium text-gray-800">Innovation:</span> I
+              embrace emerging technologies to create forward-thinking and
+              future-ready web solutions.
+            </li>
+            <li>
+              <span className="font-medium text-gray-800">User Focus:</span> I
+              build every product with the end user in mind — intuitive, fast,
+              and accessible.
+            </li>
+            <li>
+              <span className="font-medium text-gray-800">Collaboration:</span>{" "}
+              I believe great results come from teamwork, communication, and
+              shared goals.
+            </li>
           </ul>
         </article>
       </div>
 
-      {/* Stats */}
+      {/* Stats Section */}
       <div className="bg-slate-50 rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
         <div>
           <h4 className="text-slate-800 font-semibold text-2xl md:text-3xl">
-            By the numbers
+            By the Numbers
           </h4>
           <p className="text-gray-500 text-sm mt-1">
-            A quick look at what we’ve accomplished.
+            A quick overview of my professional milestones.
           </p>
         </div>
         <div className="flex gap-10 md:gap-16 text-center">
           <div>
             <div className="text-3xl md:text-4xl font-bold text-slate-900">
-              {counts.projects}+ 
+              {counts.projects}+
             </div>
             <div className="text-sm md:text-base text-gray-600">
               Projects Completed
@@ -116,7 +177,7 @@ export default function AboutUs() {
           </div>
           <div>
             <div className="text-3xl md:text-4xl font-bold text-slate-900">
-              {counts.clients}+ 
+              {counts.clients}+
             </div>
             <div className="text-sm md:text-base text-gray-600">
               Happy Clients
@@ -124,16 +185,16 @@ export default function AboutUs() {
           </div>
           <div>
             <div className="text-3xl md:text-4xl font-bold text-slate-900">
-              {counts.years}+ 
+              {counts.years}+
             </div>
             <div className="text-sm md:text-base text-gray-600">
-              Years Experience
+              Years of Experience
             </div>
           </div>
         </div>
       </div>
 
-      {/* Contact */}
+      {/* Contact Section */}
       <div
         id="contact"
         className="bg-gradient-to-r from-white to-slate-50 p-8 md:p-10 rounded-2xl border border-slate-100 shadow-sm"
@@ -141,18 +202,19 @@ export default function AboutUs() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-xl font-semibold mb-1">
-              Want to work with us?
+              Interested in collaborating?
             </h3>
             <p className="text-gray-600 text-sm md:text-base">
-              Drop a line — we respond within minutes.
+              Let’s discuss your next project — I usually respond within a few
+              minutes.
             </p>
           </div>
           <form className="flex gap-3 w-full md:w-auto">
             <input
               id="email"
               type="email"
-              placeholder="you@yourcompany.com"
-              className="px-4 py-2.5 rounded-lg border border-slate-200 text-sm md:text-base flex-1 focus:outline-none focus:ring-2 focus:ring-slate-300"
+              placeholder="Your email"
+              className="px-4 py-2.5 rounded-lg text-gray-400 border border-slate-200 text-sm md:text-base flex-1 focus:outline-none focus:ring-2 focus:ring-slate-300"
             />
             <button
               type="submit"

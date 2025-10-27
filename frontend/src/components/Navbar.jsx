@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MenuIcon, XIcon } from "lucide-react";
-import { Code, Server, Database, Cloud, Layers, ArrowRight } from "lucide-react";
+import {
+  Code,
+  Server,
+  Database,
+  Cloud,
+  Layers,
+  ArrowRight,
+} from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,15 +92,17 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* 🌈 Gradient Hire Me Button */}
-      <div className="flex items-center gap-8">
-        <div className="rounded-full p-[1px] bg-gradient-to-r from-slate-900 via-gray-800 to-slate-900 hover:scale-105 transition duration-300 active:scale-100">
-          <button className="px-10 text-sm py-2.5 border border-white/20 text-white rounded-full font-medium bg-gray-900/60 backdrop-blur-sm">
-            HIRE ME
-          </button>
-        </div>
+      <div className="button-bg rounded-full p-0.5 hover:scale-105 transition duration-300 active:scale-100">
+        <button
+          onClick={() => {
+            navigate("/contact");
+            scrollTo(0, 0);
+          }}
+          className="px-8 text-sm py-2.5 text-white rounded-full font-medium bg-gray-800"
+        >
+          Hire Me
+        </button>
       </div>
-
       {/* Mobile Menu Icon */}
       <MenuIcon
         onClick={() => setIsOpen(!isOpen)}

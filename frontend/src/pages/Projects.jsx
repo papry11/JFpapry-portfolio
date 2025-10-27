@@ -2,106 +2,133 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
+import { ExternalLink, Github, Code2 } from "lucide-react";
 import Testimonal from "../components/Testimonal";
 
 const Projects = () => {
+ const navigate = useNavigate();
+  const { ProjectsData } = useContext(AppContext);
 
-   const navigate = useNavigate();
-    const {ProjectsData} = useContext(AppContext)
-
-  // Small fade animation variant
-  const smallFade = {
-    hidden: { opacity: 0, y: 30 },
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
     show: {
       opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
+
   return (
-    <div>
-      <motion.div
+    <motion.div
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
-      className="flex flex-col items-center gap-6 my-16  md:mx-10 mt-30"
+      className="flex flex-col items-center gap-8 my-24 px-4 md:px-10"
     >
       {/* Header */}
       <motion.h1
-        variants={smallFade}
-        className="text-4xl font-semibold text-center"
+        variants={fadeUp}
+        className="text-4xl font-semibold text-gray-900 text-center"
       >
-        My Project
+        My Projects
       </motion.h1>
 
       <motion.p
-        variants={smallFade}
-        className="sm:w-1/2 text-center  text-gray-600"
+        variants={fadeUp}
+        className="sm:w-2/3 md:w-2/3 text-center text-gray-600 leading-relaxed"
       >
-        Stay ahead of the curve with fresh projects built using React, Node.js,
-        and modern web tech.
+        A showcase of my latest projects built with modern frameworks,
+        efficient architecture, and a focus on performance, scalability, and
+        user experience.
       </motion.p>
 
-      {/* Card Container */}
+      {/* Grid */}
       <motion.div
-        variants={smallFade}
-        className="flex flex-wrap items-center justify-center gap-10 pt-10"
+        variants={fadeUp}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl justify-items-center"
       >
-        {ProjectsData.map((item, index) => (
-          <motion.div onClick={()=>navigate(`/project/${item._id}`)}
+        {ProjectsData.slice(0, 6).map((item, index) => (
+          <motion.div
             key={index}
-            variants={smallFade}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="group relative bg-white/10 backdrop-blur-lg border border-white/10 hover:border-indigo-400/40 shadow-lg hover:shadow-indigo-400/30 rounded-2xl overflow-hidden max-w-[18rem] w-full p-4 transition-all duration-500 cursor-pointer"
+            className="group relative bg-white border border-gray-200 hover:border-indigo-400 shadow-sm hover:shadow-lg rounded-2xl overflow-hidden w-full max-w-sm cursor-pointer transition-all duration-500"
+            onClick={() => navigate(`/project/${item._id}`)}
           >
             {/* Image */}
-            <div className="relative overflow-hidden rounded-xl">
+            <div className="relative h-52 overflow-hidden">
               <img
-                className="w-full object-cover rounded-xl group-hover:scale-110 transition-transform duration-700"
                 src={item.image}
                 alt={item.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl"></div>
+              <div className="absolute top-3 left-3 bg-indigo-600 text-white text-xs px-3 py-1 rounded-full shadow-md">
+                {item.category || "Full Stack"}
+              </div>
             </div>
 
             {/* Content */}
-            <div className="mt-4 space-y-1">
-              <h3 className="text-lg font-semibold text-primary/80  duration-300 line-clamp-2">
-                {item.title}
-              </h3>
+            <div className="p-5 flex flex-col justify-between min-h-[190px]">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                  {item.description}
+                </p>
 
-              <p className="text-sm text-gray-400 line-clamp-2">
-                {item.description}
-              </p>
+                {/* Highlight line */}
+                {item.highlight && (
+                  <p className="text-sm text-indigo-500 font-medium mb-2">
+                    ✨ {item.highlight}
+                  </p>
+                )}
 
-              <p className="text-xs text-indigo-400 font-medium mt-2">
-                {Array.isArray(item.techStack)
-                  ? item.techStack.join(" • ")
-                  : item.techStack}
-              </p>
+                {/* Tech icons / stack */}
+                <div className="flex flex-wrap gap-2">
+                  {item.techStack.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
 
-              {item.liveUrl && (
-                <a 
-                  href={item.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-3 text-sm font-medium text-gray-700 hover:text-blue-500 transition-colors duration-300"
-                >
-                  Visit Project →
-                </a>
-              )}
+              {/* Buttons */}
+              <div className="flex items-center gap-3 mt-4">
+                {item.liveUrl && (
+                  <a
+                    href={item.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-1 text-sm text-indigo-600 hover:text-indigo-700 font-medium transition"
+                  >
+                    <ExternalLink size={16} /> Live
+                  </a>
+                )}
+                {item.sourceUrl && (
+                  <a
+                    href={item.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-1 text-sm text-gray-700 hover:text-gray-900 font-medium transition"
+                  >
+                    <Github size={16} /> Code
+                  </a>
+                )}
+              </div>
             </div>
-
-            {/* Glow effect */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-15 blur-2xl transition-opacity duration-700"></div>
           </motion.div>
         ))}
       </motion.div>
-      </motion.div>
-      <Testimonal/>
-    </div>
-  )
+      <Testimonal />
+    </motion.div>
+  );
 }
 
 export default Projects

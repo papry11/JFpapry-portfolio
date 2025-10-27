@@ -31,13 +31,13 @@ const Header = () => {
       <img
         src={assets.hero_bg}
         alt=""
-        className="absolute w-full h-full pointer-events-none select-none"
+        className="absolute w-full h-full  pointer-events-none select-none"
       />
 
       {/* Desktop: right-middle social icons */}
       <div className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-4 z-20">
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/papry11"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-800 hover:text-gray-600 transition-colors transform hover:scale-110"
@@ -45,7 +45,7 @@ const Header = () => {
           <Github size={28} />
         </a>
         <a
-          href="https://linkedin.com/in/yourusername"
+          href="https://www.linkedin.com/in/jannatulferdouspapry/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-800 hover:text-blue-500 transition-colors transform hover:scale-110"
@@ -57,11 +57,14 @@ const Header = () => {
       {/* Desktop: left-middle mail + insta */}
       <div className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 flex-col gap-4 z-20">
         <a
-          href="mailto:youremail@gmail.com"
-          className="text-gray-800 hover:text-red-500 transition-colors transform hover:scale-110"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=jannatulferdouspapry115@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-800 hover:text-red-500 transition-all duration-300 hover:scale-110 cursor-pointer"
         >
           <Mail size={28} />
         </a>
+
         <a
           href="https://linkedin.com/in/yourusername"
           target="_blank"
@@ -75,7 +78,7 @@ const Header = () => {
       {/* Mobile icons */}
       <div className="flex md:hidden fixed right-4 top-30 flex-col gap-3 z-50">
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/papry11"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-800 hover:text-gray-600 transition-colors transform hover:scale-110"
@@ -83,7 +86,7 @@ const Header = () => {
           <Github size={24} />
         </a>
         <a
-          href="https://linkedin.com/in/yourusername"
+          href="https://www.linkedin.com/in/jannatulferdouspapry/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-800 hover:text-blue-500 transition-colors transform hover:scale-110"
@@ -91,8 +94,10 @@ const Header = () => {
           <Linkedin size={24} />
         </a>
         <a
-          href="mailto:youremail@gmail.com"
-          className="text-gray-800 hover:text-red-500 transition-colors transform hover:scale-110"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=jannatulferdouspapry115@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-800 hover:text-red-500 transition-all duration-300 hover:scale-110 cursor-pointer"
         >
           <Mail size={24} />
         </a>
