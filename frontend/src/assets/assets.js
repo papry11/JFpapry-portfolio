@@ -3,7 +3,7 @@
 import logo from './logo.svg'
 import blog_pic_1 from './blog_pic_1.png'
 import hero_bg from './gradientBackground.png'
-import papry from './papry.jpg'
+import papry from './papry-formal.jpg'
 
 export const portfolioAssets = {
   logo,
