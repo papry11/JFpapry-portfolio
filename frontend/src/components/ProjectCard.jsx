@@ -6,16 +6,15 @@ import { ExternalLink, Github, Code2 } from "lucide-react";
 
 const ProjectCard = () => {
   const navigate = useNavigate();
-  const { ProjectsData } = useContext(AppContext);
+  const { projectsData, loading, error } = useContext(AppContext);
 
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
+
+  if (loading) return <p className="text-center mt-10">Loading projects...</p>;
+  if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
     <motion.div
@@ -25,10 +24,7 @@ const ProjectCard = () => {
       className="flex flex-col items-center gap-8 my-24 px-4 md:px-10"
     >
       {/* Header */}
-      <motion.h1
-        variants={fadeUp}
-        className="text-4xl font-semibold text-gray-900 text-center"
-      >
+      <motion.h1 variants={fadeUp} className="text-4xl font-semibold text-gray-900 text-center">
         My Recent Works
       </motion.h1>
 
@@ -36,9 +32,8 @@ const ProjectCard = () => {
         variants={fadeUp}
         className="sm:w-2/3 md:w-2/3 text-center text-gray-600 leading-relaxed"
       >
-        A showcase of my latest projects built with modern frameworks,
-        efficient architecture, and a focus on performance, scalability, and
-        user experience.
+        A showcase of my latest projects built with modern frameworks, efficient architecture,
+        and a focus on performance, scalability, and user experience.
       </motion.p>
 
       {/* Grid */}
@@ -46,7 +41,7 @@ const ProjectCard = () => {
         variants={fadeUp}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl justify-items-center"
       >
-        {ProjectsData.slice(0, 6).map((item, index) => (
+        {projectsData?.slice(0, 6).map((item, index) => (
           <motion.div
             key={index}
             whileHover={{ scale: 1.03 }}
@@ -72,24 +67,14 @@ const ProjectCard = () => {
                 <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 mb-1">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-600 line-clamp-2 mb-3">
-                  {item.description}
-                </p>
-
-                {/* Highlight line */}
+                <p className="text-sm text-gray-600 line-clamp-2 mb-3">{item.description}</p>
                 {item.highlight && (
-                  <p className="text-sm text-indigo-500 font-medium mb-2">
-                    ✨ {item.highlight}
-                  </p>
+                  <p className="text-sm text-indigo-500 font-medium mb-2">✨ {item.highlight}</p>
                 )}
 
-                {/* Tech icons / stack */}
                 <div className="flex flex-wrap gap-2">
-                  {item.techStack.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full"
-                    >
+                  {item.techStack?.map((tech, i) => (
+                    <span key={i} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
                       {tech}
                     </span>
                   ))}
@@ -126,13 +111,10 @@ const ProjectCard = () => {
         ))}
       </motion.div>
 
-      {/* Button */}
+      {/* More Projects Button */}
       <div className="pt-10">
         <motion.button
-          whileHover={{
-            scale: 1.08,
-            boxShadow: "0 0 25px rgba(99,102,241,0.3)",
-          }}
+          whileHover={{ scale: 1.08, boxShadow: "0 0 25px rgba(99,102,241,0.3)" }}
           whileTap={{ scale: 0.96 }}
           onClick={() => {
             navigate("/project");

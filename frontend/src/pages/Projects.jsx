@@ -7,9 +7,16 @@ import Testimonal from "../components/Testimonal";
 
 const Projects = () => {
   const navigate = useNavigate();
-  const { ProjectsData } = useContext(AppContext);
+  const { projectsData, loading } = useContext(AppContext);
 
-  // Animation variants
+  if (loading) {
+    return <p className="text-center mt-10">Loading projects...</p>;
+  }
+
+  if (!projectsData || projectsData.length === 0) {
+    return <p className="text-center mt-10">No projects found.</p>;
+  }
+
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     show: {
@@ -23,15 +30,10 @@ const Projects = () => {
     <motion.div
       initial="hidden"
       whileInView="show"
-      // 👇 This fixes mobile viewport issue
       viewport={{ once: false, amount: 0.1 }}
       className="motion-container flex flex-col items-center gap-8 my-24 px-4 md:px-10"
     >
-      {/* Header */}
-      <motion.h1
-        variants={fadeUp}
-        className="text-4xl font-semibold text-gray-900 text-center"
-      >
+      <motion.h1 variants={fadeUp} className="text-4xl font-semibold text-gray-900 text-center">
         My Projects
       </motion.h1>
 
@@ -44,14 +46,13 @@ const Projects = () => {
         user experience.
       </motion.p>
 
-      {/* Grid */}
       <motion.div
         variants={fadeUp}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl justify-items-center"
       >
-        {ProjectsData.slice(0, 6).map((item, index) => (
+        {projectsData.map((item) => (
           <motion.div
-            key={index}
+            key={item._id}
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
             className="group relative bg-white border border-gray-200 hover:border-indigo-400 shadow-sm hover:shadow-lg rounded-2xl overflow-hidden w-full max-w-sm cursor-pointer transition-all duration-500"

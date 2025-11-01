@@ -1,23 +1,34 @@
-import { createContext } from "react";
-import { ProjectsData } from "../assets/assets";
+import { createContext, useEffect, useState } from "react";
+import axios from "axios";
 
+export const AppContext = createContext();
 
-export const AppContext = createContext()
+const AppContextProvider = ({ children }) => {
+  const [projectsData, setProjectsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL; // e.g., http://localhost:4000
 
-const AppContextProvider = (props) => {
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get(`${backendUrl}/projects`); // public route
+        setProjectsData(response.data.projects || []);
+      } catch (err) {
+        console.error("Failed to fetch projects:", err);
+        setError("Failed to load projects.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
+    fetchProjects();
+  }, []);
 
-    const value = {
-        ProjectsData
-    }
+  const value = { projectsData, loading, error };
 
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+};
 
-    return (
-        <AppContext.Provider value={value}>
-            {props.children}
-        </AppContext.Provider>
-    )
-}
-
-export default AppContextProvider
+export default AppContextProvider;

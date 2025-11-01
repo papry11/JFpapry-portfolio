@@ -7,17 +7,15 @@ import { motion } from "framer-motion";
 const ProjectDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { ProjectsData } = useContext(AppContext);
+  const { projectsData } = useContext(AppContext);
   const [projectInfo, setProjectInfo] = useState(null);
 
   useEffect(() => {
-    if (ProjectsData?.length) {
-      const project = ProjectsData.find(
-        (p) => String(p._id) === String(id)
-      );
+    if (Array.isArray(projectsData) && projectsData.length) {
+      const project = projectsData.find((p) => String(p._id) === String(id));
       setProjectInfo(project);
     }
-  }, [ProjectsData, id]);
+  }, [projectsData, id]);
 
   if (!projectInfo)
     return (
@@ -33,14 +31,12 @@ const ProjectDetails = () => {
       transition={{ duration: 0.6 }}
       className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-20 px-6 flex flex-col items-center"
     >
-      {/* Main Container */}
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="max-w-6xl w-full bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col md:flex-row hover:shadow-xl transition-shadow duration-300"
       >
-        {/* Image Section */}
         <div className="md:w-1/2 relative group overflow-hidden">
           <img
             src={projectInfo.image}
@@ -50,7 +46,6 @@ const ProjectDetails = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         </div>
 
-        {/* Info Section */}
         <div className="md:w-1/2 p-10 flex flex-col justify-center">
           {projectInfo.category && (
             <span className="self-start bg-indigo-100 text-indigo-700 text-xs px-4 py-1.5 rounded-full font-medium mb-4 uppercase tracking-wide">
@@ -62,21 +57,16 @@ const ProjectDetails = () => {
             {projectInfo.title}
           </h2>
 
-          <p className="text-gray-600 text-sm leading-relaxed mb-6">
-            {projectInfo.description}
-          </p>
+          <p className="text-gray-600 text-sm leading-relaxed mb-6">{projectInfo.description}</p>
 
           {projectInfo.highlight && (
-            <p className="text-indigo-500 font-medium mb-6">
-              ✨ {projectInfo.highlight}
-            </p>
+            <p className="text-indigo-500 font-medium mb-6">✨ {projectInfo.highlight}</p>
           )}
 
-          {/* Tech Stack */}
           <div className="flex flex-wrap gap-2 mb-6">
             {(Array.isArray(projectInfo.techStack)
               ? projectInfo.techStack
-              : projectInfo.techStack.split(",")
+              : projectInfo.techStack?.split(",") || []
             ).map((tech, index) => (
               <span
                 key={index}
@@ -87,7 +77,6 @@ const ProjectDetails = () => {
             ))}
           </div>
 
-          {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-4 mt-2">
             {projectInfo.liveUrl && (
               <a
@@ -96,8 +85,7 @@ const ProjectDetails = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white rounded-full text-sm font-medium hover:bg-indigo-700 shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <ExternalLink size={16} />
-                Live Demo
+                <ExternalLink size={16} /> Live Demo
               </a>
             )}
 
@@ -108,22 +96,19 @@ const ProjectDetails = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 bg-gray-800 text-white rounded-full text-sm font-medium hover:bg-gray-900 shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <Github size={16} />
-                Source Code
+                <Github size={16} /> Source Code
               </a>
             )}
           </div>
         </div>
       </motion.div>
 
-      {/* Back Button */}
       <motion.button
         whileHover={{ x: -5 }}
         onClick={() => navigate("/project")}
         className="flex items-center gap-2 mt-12 text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors"
       >
-        <ArrowLeft size={18} />
-        Back to Projects
+        <ArrowLeft size={18} /> Back to Projects
       </motion.button>
     </motion.div>
   );
