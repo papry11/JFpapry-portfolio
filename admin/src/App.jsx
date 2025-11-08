@@ -9,6 +9,9 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import AddProject from "./pages/AddProject";
 import AllProjects from "./pages/AllProjects";
+import AddBlog from "./pages/AddBlog";
+import AllBlog from "./pages/AllBlog";
+
 
 const App = () => {
   const { aToken } = useContext(AdminContext);
@@ -23,7 +26,9 @@ const App = () => {
           <Route path='/' element={<></>} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/add-project' element={<AddProject />} />
-          <Route path='/All-projects' element={<AllProjects/>} />
+          <Route path='/All-projects' element={<AllProjects />} />
+          <Route path='/add-blog' element={<AddBlog />} />
+          <Route path='/all-blog' element={<AllBlog />} />
         </Routes>
       </div>
     </div>

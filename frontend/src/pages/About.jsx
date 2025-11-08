@@ -218,7 +218,7 @@ export default function AboutUs() {
             />
             <button
               type="submit"
-              className="px-5 py-2.5 rounded-lg bg-slate-900 text-white text-sm md:text-base font-medium hover:opacity-90 hover:scale-[1.02] transition-transform duration-200"
+              className="px-4 py-2.5 rounded-lg bg-slate-900 text-white text-sm md:text-base font-medium hover:opacity-90 hover:scale-[1.02] transition-transform duration-200"
             >
               Send
             </button>

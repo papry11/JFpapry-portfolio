@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { MenuIcon, XIcon } from "lucide-react";
-import {
-  Code,
-  Server,
-  Database,
-  Cloud,
-  Layers,
-  ArrowRight,
-} from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation(); // to detect current route
+
+  const links = [
+    { name: "Home", path: "/" },
+    { name: "Project", path: "/project" },
+    { name: "Blog", path: "/blog" },
+    { name: "Services", path: "/service" },
+    { name: "About Me", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ];
 
   return (
     <div
@@ -40,58 +42,27 @@ const Navbar = () => {
           onClick={() => setIsOpen(!isOpen)}
         />
 
-        <Link
-          onClick={() => {
-            scrollTo(0, 0);
-            setIsOpen(false);
-          }}
-          to="/"
-          className="text-white md:text-primary hover:text-blue-600 transition"
-        >
-          Home
-        </Link>
-        <Link
-          onClick={() => {
-            scrollTo(0, 0);
-            setIsOpen(false);
-          }}
-          to="/project"
-          className="text-white md:text-primary hover:text-blue-600 transition"
-        >
-          Project
-        </Link>
-        <Link
-          onClick={() => {
-            scrollTo(0, 0);
-            setIsOpen(false);
-          }}
-          to="/service"
-          className="text-white md:text-primary hover:text-blue-600 transition"
-        >
-          Services
-        </Link>
-        <Link
-          onClick={() => {
-            scrollTo(0, 0);
-            setIsOpen(false);
-          }}
-          to="/about"
-          className="text-white md:text-primary hover:text-blue-600 transition"
-        >
-          About Me
-        </Link>
-        <Link
-          onClick={() => {
-            scrollTo(0, 0);
-            setIsOpen(false);
-          }}
-          to="/contact"
-          className="text-white md:text-primary hover:text-blue-600 transition"
-        >
-          Contact
-        </Link>
+        {links.map((link) => (
+          <div key={link.path} className="flex flex-col items-center">
+            <Link
+              onClick={() => {
+                scrollTo(0, 0);
+                setIsOpen(false);
+              }}
+              to={link.path}
+              className={`text-white md:text-primary hover:text-blue-600 transition px-1 py-1`}
+            >
+              {link.name}
+            </Link>
+            {/* Underline for active link */}
+            {location.pathname === link.path && (
+              <div className="w-6 h-[2px] bg-blue-600 rounded mt-1"></div>
+            )}
+          </div>
+        ))}
       </div>
 
+      {/* Hire Me Button */}
       <div className="button-bg rounded-full p-0.5 hover:scale-105 transition duration-300 active:scale-100">
         <button
           onClick={() => {
@@ -103,6 +74,7 @@ const Navbar = () => {
           Hire Me
         </button>
       </div>
+
       {/* Mobile Menu Icon */}
       <MenuIcon
         onClick={() => setIsOpen(!isOpen)}
