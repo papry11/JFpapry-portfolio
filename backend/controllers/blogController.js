@@ -147,6 +147,7 @@ export const addBlog = async (req, res) => {
           );
           streamifier.createReadStream(fileBuffer).pipe(stream);
         });
+        
       };
 
       const result = await streamUpload(imageFile.buffer);

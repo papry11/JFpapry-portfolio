@@ -22,7 +22,14 @@ const Navbar = () => {
       bg-white/10 backdrop-blur-md"
     >
       {/* Logo */}
-      <Link to="/" className="max-md:flex-1">
+      <Link
+        to="/"
+        className="max-md:flex-1"
+        onClick={() => {
+          scrollTo(0, 0); 
+          setIsOpen(false); 
+        }}
+      >
         <h1 className="text-[22px] font-semibold text-primary">
           <span className="text-primary font-bold text-5xl">JF</span>PAPRY
         </h1>
