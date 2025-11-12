@@ -7,7 +7,10 @@ const BlogCard = ({ blog }) => {
 
   return (
     <div
-      onClick={() => navigate(`/blog/${_id}`)}
+      onClick={() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        navigate(`/blog/${_id}`);
+      }}
       className="w-full rounded-lg overflow-hidden shadow-md hover:shadow-primary/30 hover:scale-[1.02] transition-transform duration-300 cursor-pointer bg-white"
     >
       {image && (
@@ -24,7 +27,9 @@ const BlogCard = ({ blog }) => {
       </span>
 
       <div className="p-5">
-        <h5 className="mb-2 font-semibold text-gray-900 line-clamp-2">{title}</h5>
+        <h5 className="mb-2 font-semibold text-gray-900 line-clamp-2">
+          {title}
+        </h5>
         <p
           className="text-xs text-gray-600 line-clamp-3"
           dangerouslySetInnerHTML={{ __html: description?.slice(0, 200) || "" }}

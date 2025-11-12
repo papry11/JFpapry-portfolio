@@ -33,7 +33,10 @@ const Projects = () => {
       viewport={{ once: false, amount: 0.1 }}
       className="motion-container flex flex-col items-center gap-8 my-24 px-4 md:px-10"
     >
-      <motion.h1 variants={fadeUp} className="text-4xl font-semibold text-gray-900 text-center">
+      <motion.h1
+        variants={fadeUp}
+        className="text-4xl font-semibold text-gray-900 text-center"
+      >
         My Projects
       </motion.h1>
 
@@ -41,14 +44,14 @@ const Projects = () => {
         variants={fadeUp}
         className="sm:w-2/3 md:w-2/3 text-center text-gray-600 leading-relaxed"
       >
-        A showcase of my latest projects built with modern frameworks,
-        efficient architecture, and a focus on performance, scalability, and
-        user experience.
+        A showcase of my latest projects built with modern frameworks, efficient
+        architecture, and a focus on performance, scalability, and user
+        experience.
       </motion.p>
 
       <motion.div
         variants={fadeUp}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl justify-items-center"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full max-w-7xl justify-items-center"
       >
         {projectsData.map((item) => (
           <motion.div
@@ -56,7 +59,10 @@ const Projects = () => {
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
             className="group relative bg-white border border-gray-200 hover:border-indigo-400 shadow-sm hover:shadow-lg rounded-2xl overflow-hidden w-full max-w-sm cursor-pointer transition-all duration-500"
-            onClick={() => navigate(`/project/${item._id}`)}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              navigate(`/project/${item._id}`);
+            }}
           >
             {/* Image */}
             <div className="relative h-52 overflow-hidden">

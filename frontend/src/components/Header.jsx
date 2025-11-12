@@ -26,7 +26,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="flex flex-col items-center justify-center px-6 sm:px-10 md:px-16 lg:px-20 py-16 mt-20 md:mt-28 rounded-3xl text-center bg-primary-dull/40 shadow-inner border border-gray-200 relative overflow-hidden">
+    <header className="flex flex-col items-center justify-center px-6 sm:px-10 md:px-16 lg:px-20 py-16 mt-10 md:mt-18 rounded-3xl text-center bg-primary-dull/40 shadow-inner border border-gray-200 border-b-0 relative overflow-hidden">
       {/* background gradient image */}
       <img
         src={assets.hero_bg}
@@ -36,6 +36,15 @@ const Header = () => {
 
       {/* Desktop: right-middle social icons */}
       <div className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-4 z-20">
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=jannatulferdouspapry115@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-800 hover:text-red-500 transition-all duration-300 hover:scale-110 cursor-pointer"
+        >
+          <Mail size={28} />
+        </a>
+
         <a
           href="https://github.com/papry11"
           target="_blank"
@@ -54,26 +63,6 @@ const Header = () => {
         </a>
       </div>
 
-      {/* Desktop: left-middle mail + insta */}
-      <div className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 flex-col gap-4 z-20">
-        <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=jannatulferdouspapry115@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-800 hover:text-red-500 transition-all duration-300 hover:scale-110 cursor-pointer"
-        >
-          <Mail size={28} />
-        </a>
-
-        <a
-          href="https://linkedin.com/in/yourusername"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-800 hover:text-pink-500 transition-colors transform hover:scale-110"
-        >
-          <Instagram size={28} />
-        </a>
-      </div>
 
       {/* Mobile icons */}
       <div className="flex md:hidden fixed right-4 top-30 flex-col gap-3 z-50">

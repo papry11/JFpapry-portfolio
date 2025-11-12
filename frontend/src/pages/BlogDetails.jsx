@@ -2,12 +2,12 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 import { ArrowLeft } from "lucide-react";
+import { motion } from "framer-motion";
 
 const BlogDetails = () => {
   const { id } = useParams();
   const { blogs } = useAppContext();
 
-  // Find the blog by id
   const blog = (blogs || []).find((item) => item._id === id);
 
   if (!blog) {
@@ -18,30 +18,47 @@ const BlogDetails = () => {
     );
   }
 
-  return (
-    <div className="min-h-screen bg-gray-50 px-4 sm:px-8 py-25">
-      {/* Back Link */}
-      <Link
-        to="/blog"
-        className="inline-flex items-center gap-2 text-blue-600 hover:underline mb-6 font-medium"
-      >
-        <ArrowLeft size={18} /> Back to Blogs
-      </Link>
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
 
-      <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden">
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white px-5 sm:px-10 py-20">
+      {/* Back Button */}
+      <div className="max-w-5xl mx-auto mb-8">
+        <Link
+          to="/blog"
+          className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium transition-all"
+        >
+          <ArrowLeft size={18} />
+          <span>Back to Blogs</span>
+        </Link>
+      </div>
+
+      {/* Blog Card */}
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={fadeUp}
+        className="max-w-5xl mx-auto bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100"
+      >
         {/* Blog Image */}
         {blog.image && (
-          <img
-            src={blog.image}
-            alt={blog.title}
-            className="w-full h-64 sm:h-80 object-cover"
-          />
+          <div className="relative w-full bg-gray-100 flex items-center justify-center p-4 sm:p-6">
+            <img
+              src={blog.image}
+              alt={blog.title}
+              className="max-h-[550px] w-auto object-contain transition-transform duration-700 hover:scale-105 rounded-xl"
+            />
+          </div>
         )}
 
-        <div className="p-6 sm:p-8">
-          {/* Category Badge */}
+        {/* Blog Content */}
+        <div className="p-6 sm:p-10">
+          {/* Category */}
           {blog.category && (
-            <span className="inline-block text-xs font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
+            <span className="inline-block mb-3 text-xs font-semibold text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full">
               {typeof blog.category === "string"
                 ? blog.category
                 : blog.category?.name || "Uncategorized"}
@@ -49,26 +66,28 @@ const BlogDetails = () => {
           )}
 
           {/* Title */}
-          <h1 className="text-2xl sm:text-3xl font-bold mt-4 text-gray-900">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-3">
             {blog.title}
           </h1>
 
           {/* Subtitle */}
           {blog.subTitle && (
-            <p className="text-gray-600 mt-2 text-sm sm:text-base">
+            <p className="text-gray-600 text-base sm:text-lg mb-5">
               {blog.subTitle}
             </p>
           )}
 
-          <hr className="my-5 border-gray-200" />
+          {/* Divider */}
+          <hr className="my-6 border-gray-200" />
 
           {/* Description */}
-          <div
-            className="rich-text prose prose-sm sm:prose lg:prose-lg max-w-none text-gray-700 leading-relaxed"
+          <motion.div
+            variants={fadeUp}
+            className="prose prose-gray prose-lg max-w-none leading-relaxed text-gray-700"
             dangerouslySetInnerHTML={{ __html: blog.description }}
-          ></div>
+          ></motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

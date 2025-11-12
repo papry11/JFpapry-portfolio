@@ -24,7 +24,10 @@ const ProjectCard = () => {
       className="flex flex-col items-center gap-8 my-24 px-4 md:px-10"
     >
       {/* Header */}
-      <motion.h1 variants={fadeUp} className="text-4xl font-semibold text-gray-900 text-center">
+      <motion.h1
+        variants={fadeUp}
+        className="text-4xl font-semibold text-gray-900 text-center"
+      >
         My Recent Works
       </motion.h1>
 
@@ -32,14 +35,15 @@ const ProjectCard = () => {
         variants={fadeUp}
         className="sm:w-2/3 md:w-2/3 text-center text-gray-600 leading-relaxed"
       >
-        A showcase of my latest projects built with modern frameworks, efficient architecture,
-        and a focus on performance, scalability, and user experience.
+        A showcase of my latest projects built with modern frameworks, efficient
+        architecture, and a focus on performance, scalability, and user
+        experience.
       </motion.p>
 
       {/* Grid */}
       <motion.div
         variants={fadeUp}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl justify-items-center"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 w-full max-w-7xl justify-items-center"
       >
         {projectsData?.slice(0, 6).map((item, index) => (
           <motion.div
@@ -47,7 +51,10 @@ const ProjectCard = () => {
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
             className="group relative bg-white border border-gray-200 hover:border-indigo-400 shadow-sm hover:shadow-lg rounded-2xl overflow-hidden w-full max-w-sm cursor-pointer transition-all duration-500"
-            onClick={() => navigate(`/project/${item._id}`)}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              navigate(`/project/${item._id}`);
+            }}
           >
             {/* Image */}
             <div className="relative h-52 overflow-hidden">
@@ -67,14 +74,21 @@ const ProjectCard = () => {
                 <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 mb-1">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-600 line-clamp-2 mb-3">{item.description}</p>
+                <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                  {item.description}
+                </p>
                 {item.highlight && (
-                  <p className="text-sm text-indigo-500 font-medium mb-2">✨ {item.highlight}</p>
+                  <p className="text-sm text-indigo-500 font-medium mb-2">
+                    ✨ {item.highlight}
+                  </p>
                 )}
 
                 <div className="flex flex-wrap gap-2">
                   {item.techStack?.map((tech, i) => (
-                    <span key={i} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
+                    <span
+                      key={i}
+                      className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full"
+                    >
                       {tech}
                     </span>
                   ))}
@@ -114,7 +128,10 @@ const ProjectCard = () => {
       {/* More Projects Button */}
       <div className="pt-10">
         <motion.button
-          whileHover={{ scale: 1.08, boxShadow: "0 0 25px rgba(99,102,241,0.3)" }}
+          whileHover={{
+            scale: 1.08,
+            boxShadow: "0 0 25px rgba(99,102,241,0.3)",
+          }}
           whileTap={{ scale: 0.96 }}
           onClick={() => {
             navigate("/project");

@@ -26,7 +26,7 @@ export default function ExperienceAndSkills() {
     {
       title: "Frontend Developer",
       company: "PixelCraft Agency",
-      duration: "2020 — 2022",
+      duration: "2021 — 2022",
       description:
         "Developed and maintained responsive user interfaces. Collaborated closely with designers to translate concepts into pixel-perfect experiences.",
     },
